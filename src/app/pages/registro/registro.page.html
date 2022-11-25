@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="success" style="text-align: center;">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Registrate</ion-title>
+  </ion-toolbar> 
+</ion-header>
+
+<ion-content color="warning">
+  <ion-card color="warning">
+    <ion-card-header style="text-align: center;">
+     <ion-card-title>Creando Perfil</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content color="warning">
+       <form [formGroup]="formularioRegistro" (keyup.enter)="CrearUsuario()">
+
+        <ion-item color="warning">
+          <ion-label position="floating">Nombre</ion-label>
+          <ion-input type="text" formControlName="nombre"></ion-input>
+        </ion-item>
+
+        <ion-item color="warning">
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" formControlName="correo"></ion-input>
+        </ion-item>
+
+        <ion-item color="warning">
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input type="password" formControlName="password"></ion-input>
+        </ion-item>
+
+        <ion-item color="warning">
+          <ion-label position="floating">Repita Contraseña</ion-label>
+          <ion-input type="password" formControlName="confirmaPass"></ion-input>
+        </ion-item>
+        <br>
+       <ion-list color="warning">
+        <ion-item color="warning"> 
+          <ion-select placeholder="Seleccione Perfil" color="warning">
+            <ion-select-option value="apples" color="warning">Profesor</ion-select-option>
+            <ion-select-option value="oranges" color="warning">Alumno</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+       </form>
+       
+       <br>
+       <ion-button (click)="CrearUsuario()" expand="block">Crear Perfil</ion-button>
+       <ion-button [routerLink]="['/login']" expand="block">Login</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+

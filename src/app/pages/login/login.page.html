@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="success" style="text-align: center;">
+    <ion-title>Login</ion-title>
+  </ion-toolbar> 
+</ion-header>
+
+<ion-content color="warning">
+  <ion-col>
+    <ion-img src="assets/img/bienvenidos.png"></ion-img>
+  </ion-col>
+  <br>
+  <ion-card color="warning">
+    <ion-card-content>
+      <form [formGroup] = "formularioLogin">
+          <ion-item color="warning">
+            <ion-label position="floating">Correo: </ion-label>
+            <ion-input type="email" formControlName="correo"></ion-input>
+          </ion-item>
+
+          <ion-item color="warning">
+            <ion-label position="floating">Contraseña: </ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+      </form> 
+      <br>
+      <ion-button (click)="Ingresar()" expand="block" fill="outline" shape="round">Ingresar</ion-button>
+      <ion-button [routerLink]="['/registro']" expand="block" fill="outline" shape="round">Registrate</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-col>
+    <ion-img src="assets/img/estudiantes.PNG"></ion-img>
+  </ion-col>
+  
+
+
+</ion-content>
