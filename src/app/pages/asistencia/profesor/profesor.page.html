@@ -1,9 +1,59 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header [translucent]="true">
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/asistencia"></ion-back-button>
+    </ion-buttons>
     <ion-title>Profesor</ion-title>
-  </ion-toolbar>
+  </ion-toolbar> 
 </ion-header>
 
-<ion-content>
+<ion-content color="danger" style="text-align: center;">
+
+  <ion-card color="success">
+    <ion-card>
+      <ion-item color="warning">
+        <ion-label>Nombre asignatura: </ion-label>
+        <ion-input type="text" placeholder="Pro. Movil" [(ngModel)]="usuario.nom" required></ion-input>
+      </ion-item>
+    </ion-card>
+  
+    <ion-card>
+      <ion-item color="warning">
+        <ion-label>Fecha: </ion-label>
+        <ion-input type="cc-number" placeholder="DDMMAAAA" [(ngModel)]="usuario.fecha" required></ion-input>
+      </ion-item>
+    </ion-card>
+  
+    <ion-card>
+      <ion-item color="warning">
+        <ion-label>Codigo asignatura: </ion-label>
+        <ion-input type="cc-number" placeholder="123456"  [(ngModel)]="usuario.codigo" required></ion-input>
+      </ion-item>
+    </ion-card>
+    <ion-button expand="block" class="ion-margin" (click)="generaScan()">Generar QR asignatura</ion-button>
+    <br>  
+    <qrcode 
+      [qrdata]="qrCodeNString"
+      [width]="256" 
+      [errorCorrectionLevel]="'M'">
+    </qrcode>
+    <ion-button expand="block" class="ion-margin" (click)="verScan()">Generar QR Code</ion-button>
+      <br>
+    <ion-card color="success">
+      <ion-title>Datos Asignatura</ion-title>
+      <br>
+      <ion-label > {{scannedResultN}} </ion-label>
+      <br>
+      <ion-label > {{scannedResultF}} </ion-label>
+      <br>
+      <ion-label > {{scannedResultC}} </ion-label>
+    </ion-card>
+    <br>
+  </ion-card>
+
+  
 
 </ion-content>

@@ -1,27 +1,27 @@
 import { Component, OnInit } from '@angular/core';
+import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
 
 @Component({
   selector: 'app-alumno',
   templateUrl: './alumno.page.html',
   styleUrls: ['./alumno.page.scss'],
 })
-export class AlumnoPage{
+export class AlumnoPage implements OnInit{
 
-  qrCodeString= 'Hola Mundo'; 
-  scannedResult:any;
+  code: any;
+  constructor(private barcodeScanner: BarcodeScanner) { }
 
-  constructor() { }
+  ngOnInit(){
 
-  usuario={
-    nom:'',
   }
 
-  generaScan(){
-    this.qrCodeString= this.usuario.nom;
-  }
-
-  verScan(){
-    this.scannedResult=this.qrCodeString;
+  scan(){
+    this.barcodeScanner.scan().then(barcodeData => {
+      this.code = barcodeData.format;
+      console.log('Barcode data', this.code);
+     }).catch(err => {
+         console.log('Error', err);
+     });
   }
 
 }

@@ -5,11 +5,34 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './profesor.page.html',
   styleUrls: ['./profesor.page.scss'],
 })
-export class ProfesorPage implements OnInit {
+export class ProfesorPage{
+
+  qrCodeNString= 'Hola Mundo';
+  qrCodeFString= 'Hola Mundo';
+  qrCodeCString= 'Hola Mundo';
+  
+  scannedResultN:any;
+  scannedResultF:any;
+  scannedResultC:any;
 
   constructor() { }
 
-  ngOnInit() {
+  usuario={
+    nom:'',
+    fecha:'',
+    codigo:'',
+  }
+
+  generaScan(){
+    this.qrCodeNString= this.usuario.nom,
+    this.qrCodeFString= this.usuario.fecha,
+    this.qrCodeCString= this.usuario.codigo;
+  }
+
+  verScan(){
+    this.scannedResultN=this.qrCodeNString,
+    this.scannedResultF=this.qrCodeFString,
+    this.scannedResultC=this.qrCodeCString;
   }
 
 }

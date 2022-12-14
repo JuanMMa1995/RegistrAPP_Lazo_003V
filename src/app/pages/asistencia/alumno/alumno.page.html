@@ -11,18 +11,7 @@
 </ion-header>
 
 <ion-content color="warning" style="text-align: center;">
-
-  <ion-item color="warning">
-    <ion-label position="fixed">Nombre: </ion-label>
-    <ion-input type="text" [(ngModel)]="usuario.nom" required></ion-input>
-  </ion-item>
-
-  <ion-button expand="block" class="ion-margin" (click)="generaScan()">Generate QR Code</ion-button>
-  <qrcode [qrdata]="qrCodeString" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
-  <ion-button expand="block" class="ion-margin" (click)="verScan()">Generar QR Code</ion-button>
-
-  <ion-item color="warning">
-    <ion-label class="ion-text-wrap">Nombre Alumno: {{scannedResult}}</ion-label>
-  </ion-item>
+  <ion-button click="scan()">Escanear asignatura</ion-button>
+  {{code}}
 
 </ion-content>
